@@ -202,7 +202,14 @@
 			{
 				"name": "max_cdc",
 				"type": "Script",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "AzureSQLToLake",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -220,7 +227,7 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "SELECT MAX(@{pipeline().parameters.cdc_col}) FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table}",
+								"value": "SELECT MAX(@{pipeline().parameters.cdc_col}) as cdc FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table}",
 								"type": "Expression"
 							}
 						}
