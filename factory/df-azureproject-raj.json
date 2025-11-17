@@ -1,0 +1,9 @@
+{
+	"name": "df-azureproject-raj",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5f9194ff-446a-45c6-86c6-22e7a3c9877b",
+		"tenantId": "c8cc09eb-3278-4458-b759-4e29ab24f635"
+	}
+}
